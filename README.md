@@ -91,7 +91,7 @@ You can test with the following URLs:
 
 1. Create the **notes-id** resource as follows:
 
-   1. Choose the resource **/notes** in the **Resources** tree\.
+   1. Choose the resource **`/notes`** in the **Resources** tree\.
 
    1. Choose **Create Resource** from the **Actions** dropdown menu\.
 
@@ -99,7 +99,7 @@ You can test with the following URLs:
 
    1. For **Resource Name**, type `notes-id`\.
 
-   1. Leave **Resource Path** set to /notes/`{itemId}``\.
+   1. Leave **Resource Path** set to /notes/`{itemId}`\.
 
    1. Leave **Enable API Gateway CORS** unchecked\.
 
