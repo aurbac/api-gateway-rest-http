@@ -1,6 +1,6 @@
-## REST API with API Gateway
+# REST API with API Gateway
 
-### Create API Server
+## Create API Server
 
 1. Create an EC2 instance (Ubuntu Server 18.04 LTS) with HTTP access and inside SSH execute the following commands.\.
 
@@ -24,7 +24,7 @@ You can test with the following URLs:
 + **http://[your_server_name]/notes**
 + **http://[your_server_name]/notes/id/1**
 
-### Create API Gateway for Notes API
+## Create API Gateway for Notes API
 
 1. Sign in to the API Gateway console at [https://console\.aws\.amazon\.com/apigateway](https://console.aws.amazon.com/apigateway)\.
 
@@ -61,7 +61,7 @@ You can test with the following URLs:
 
    1. Choose **Create Resource**\.
  
-### Create the method to retrieve a note
+## Create the method to retrieve a note
 
 1. Create the **NoteItem** model as follows:
 
@@ -167,7 +167,7 @@ You can test with the following URLs:
 
    1. If successful, **Response Body** is displayed\.
 
-### Create the method to retrieve all the notes
+## Create the method to retrieve all the notes
 
 1. Create the **NoteItems** model as follows:
 
@@ -259,7 +259,7 @@ You can test with the following URLs:
 
    1. If successful, **Response Body** is displayed\.
 
-### Create the method to delete a note
+## Create the method to delete a note
 
 1. Create the **SuccessResponse** model as follows:
 
@@ -342,7 +342,7 @@ You can test with the following URLs:
    
    1. Choose **Save**\.
    
-   1. Choose **Add Integration Response**, for **HTTP status regex** type `5\d{2}``, for **Method response status** select **500** and choose **Save**\.
+   1. Choose **Add Integration Response**, for **HTTP status regex** type `5\d{2}`, for **Method response status** select **500** and choose **Save**\.
    
    1. Expand the method response status **500**\.
 
@@ -368,7 +368,7 @@ You can test with the following URLs:
 
    1. If successful, **Response Body** is displayed with **{"success":false }**\.
 
-### Create the method to post a note
+## Create the method to post a note
 
 1. Create the **POST** method as follows:
 
@@ -440,7 +440,7 @@ You can test with the following URLs:
    
    1. Choose **Save**\.
    
-   1. Choose **Add Integration Response**, for **HTTP status regex** type `5\d{2}``, for **Method response status** select **500** and choose **Save**\.
+   1. Choose **Add Integration Response**, for **HTTP status regex** type `5\d{2}`, for **Method response status** select **500** and choose **Save**\.
    
    1. Expand the method response status **500**\.
 
@@ -470,7 +470,7 @@ You can test with the following URLs:
    
    1. If successful, **Response Body** is displayed with **{"success":true }**\.
 
-### References
+## References
 
 + [Setting up data transformations for REST APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-data-transformations.html)
 + [Velocity Template Language (VTL)](http://velocity.apache.org/engine/devel/vtl-reference-guide.html)
