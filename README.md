@@ -39,23 +39,23 @@ You can test with the following URLs:
    1. Under **Create new API**, choose **New API**\.
 
    1. Under **Settings**:
-      + For **API name**, enter **Notes**\.
+      + For **API name**, enter `Notes`\.
       + If desired, enter a description in the **Description** field; otherwise, leave it empty\.
       + Leave **Endpoint Type** set to **Regional**\.
 
    1. Choose **Create API**\.
 
-1. Create the `notes` resource as follows:
+1. Create the **notes** resource as follows:
 
-   1. Choose the root resource \(**/**\) in the **Resources** tree\.
+   1. Choose the root resource **/** in the **Resources** tree\.
 
    1. Choose **Create Resource** from the **Actions** dropdown menu\.
 
    1. Leave **Configure as proxy resource** unchecked\.
 
-   1. For **Resource Name**, enter **notes**\.
+   1. For **Resource Name**, type `notes`\.
 
-   1. Leave **Resource Path** set to **/notes**\.
+   1. Leave **Resource Path** set to `/notes`\.
 
    1. Leave **Enable API Gateway CORS** unchecked\.
 
@@ -63,19 +63,19 @@ You can test with the following URLs:
  
 ### Create the method to retrieve a note
 
-1. Create the `NoteItem` model as follows:
+1. Create the **NoteItem** model as follows:
 
    1. Choose **Models** and choose **Create**\.
 
-   1. For **Model name**, type **NoteItem**\.
+   1. For **Model name**, type `NoteItem`\.
 
-   1. For **Content type**, type **application/json**\.
+   1. For **Content type**, type `application/json`\.
 
-   1. For **Model description**, type **Model for note**\.
+   1. For **Model description**, type `Model for note`\.
 
    1. For **Model schema**, type the following JSON Schema-compatible definition:\.
 
-   ``` json
+   ```
    {
        "title" : "NoteItem",
        "type" : "object",
@@ -89,23 +89,23 @@ You can test with the following URLs:
    ```
    1. Choose **Create model**\.
 
-1. Create the `notes-id` resource as follows:
+1. Create the **notes-id** resource as follows:
 
-   1. Choose the resource \(**/notes**\) in the **Resources** tree\.
+   1. Choose the resource **/notes** in the **Resources** tree\.
 
    1. Choose **Create Resource** from the **Actions** dropdown menu\.
 
    1. Leave **Configure as proxy resource** unchecked\.
 
-   1. For **Resource Name**, enter **notes-id**\.
+   1. For **Resource Name**, type `notes-id`\.
 
-   1. Leave **Resource Path** set to /notes/**{itemId}**\.
+   1. Leave **Resource Path** set to /notes/`{itemId}``\.
 
    1. Leave **Enable API Gateway CORS** unchecked\.
 
    1. Choose **Create Resource**\.
 
-1. Create the `GET` method as follows:
+1. Create the **GET** method as follows:
 
    1. In the **Resources** list, choose /notes**/{itemId}**\.
 
@@ -115,7 +115,7 @@ You can test with the following URLs:
 
    1. For **Integration type** set to **HTTP**\.
 
-   1. For **Endpoint URL**, type your URL **http://[your_server_name]/notes/id/{itemId}**\.
+   1. For **Endpoint URL**, type your URL `http://[your_server_name]/notes/id/{itemId}``\.
 
    1. Leave **Use Default Timeout** checked\.
 
@@ -147,7 +147,7 @@ You can test with the following URLs:
 
    1. For **Model schema**, update with the following JSON:\.
 
-   ``` json
+   ```
    {
      "note_id" : $input.json('$.id'),
      "title" : $input.json('$.name'),
@@ -163,25 +163,25 @@ You can test with the following URLs:
 
    1. Choose **Test**\.
 
-   1. For **{itemId}** type **1** and choose **Test**\.
+   1. For **{itemId}** type `1` and choose **Test**\.
 
    1. If successful, **Response Body** is displayed\.
 
 ### Create the method to retrieve all the notes
 
-1. Create the `NoteItems` model as follows:
+1. Create the **NoteItems** model as follows:
 
    1. Choose **Models** and choose **Create**\.
 
-   1. For **Model name**, type **NoteItems**\.
+   1. For **Model name**, type `NoteItems`\.
 
-   1. For **Content type**, type **application/json**\.
+   1. For **Content type**, type `application/json`\.
 
-   1. For **Model description**, type **Model for all the notes**\.
+   1. For **Model description**, type `Model for all the notes`\.
 
    1. For **Model schema**, type the following JSON Schema-compatible definition:\.
 
-   ``` json
+   ```
    {
        "type":"array",
        "items":{
@@ -191,7 +191,7 @@ You can test with the following URLs:
    ```
    1. Choose **Create model**\.
 
-1. Create the `GET` method as follows:
+1. Create the **GET** method as follows:
 
    1. In the **Resources** list, choose **/notes**\.
 
@@ -201,7 +201,7 @@ You can test with the following URLs:
 
    1. For **Integration type** set to **HTTP**\.
 
-   1. For **Endpoint URL**, type your URL **http://[your_server_name]/notes**\.
+   1. For **Endpoint URL**, type your URL `http://[your_server_name]/notes`\.
 
    1. Leave **Use Default Timeout** checked\.
 
@@ -233,7 +233,7 @@ You can test with the following URLs:
 
    1. For **Model schema**, update with the following JSON:\.
 
-   ``` json
+   ```
    #set($inputRoot = $input.path('$'))
    [
    ##TODO: Update this foreach loop to reference array from input json
@@ -261,19 +261,19 @@ You can test with the following URLs:
 
 ### Create the method to delete a note
 
-1. Create the `SuccessResponse` model as follows:
+1. Create the **SuccessResponse** model as follows:
 
    1. Choose **Models** and choose **Create**\.
 
-   1. For **Model name**, type **SuccessFailResponse**\.
+   1. For **Model name**, type `SuccessFailResponse`\.
 
-   1. For **Content type**, type **application/json**\.
+   1. For **Content type**, type `application/json`\.
 
-   1. For **Model description**, type **Model for success or fail**\.
+   1. For **Model description**, type `Model for success or fail`\.
 
    1. For **Model schema**, type the following JSON Schema-compatible definition:\.
 
-   ``` json
+   ```
    {
        "title": "SuccessResponse",
        "type": "object",
@@ -284,7 +284,7 @@ You can test with the following URLs:
    ```
    1. Choose **Create model**\.
 
-1. Create the `DELETE` method as follows:
+1. Create the **DELETE** method as follows:
 
    1. In the **Resources** list, choose /notes**/{itemId}**\.
 
@@ -296,7 +296,7 @@ You can test with the following URLs:
    
    1. For **HTTP method** selet **GET**\.
 
-   1. For **Endpoint URL**, type your URL **http://[your_server_name]/notes/id/{itemId}**\.
+   1. For **Endpoint URL**, type your URL `http://[your_server_name]/notes/id/{itemId}``\.
 
    1. Leave **Use Default Timeout** checked\.
 
@@ -312,13 +312,13 @@ You can test with the following URLs:
 
    1. For **Response Body for 200** edit the Model for **application/json**, choose **SuccessFailResponse** and choose the checkmark icon\.
    
-   1. Choose **Add Response**, type the code **500** and choose the checkmark icon\.
+   1. Choose **Add Response**, type the code `500` and choose the checkmark icon\.
    
    1. Expand the HTTP Status **500**\.
    
    1. For **Response Body for 500** choose **Add Response Model**.
 
-   1. For **Content type** type **application/json** and for **Models** select **SuccessFailResponse** and choose the checkmark icon\.
+   1. For **Content type** type `application/json` and for **Models** select **SuccessFailResponse** and choose the checkmark icon\.
 
 1. Update the **Integration Response** as follows:
 
@@ -336,21 +336,21 @@ You can test with the following URLs:
 
    1. For **Model schema**, update with the following JSON:\.
 
-   ``` json
+   ```
    { "success":true }
    ```
    
    1. Choose **Save**\.
    
-   1. Choose **Add Integration Response**, for **HTTP status regex** type **5\d{2}**, for **Method response status** select **500** and choose **Save**\.
+   1. Choose **Add Integration Response**, for **HTTP status regex** type `5\d{2}``, for **Method response status** select **500** and choose **Save**\.
    
    1. Expand the method response status **500**\.
 
-   1. Choose **Add mapping template**, type **application/json** and choose the checkmark icon\.
+   1. Choose **Add mapping template**, type `application/json` and choose the checkmark icon\.
 
    1. For **Model schema**, update with the following JSON:\.
 
-   ``` json
+   ```
    { "success":false }
    ```
    
@@ -360,17 +360,17 @@ You can test with the following URLs:
 
    1. In the **Resources** list, choose the method **DELETE** for /notes**/{itemId}**\.
 
-   1. For **{itemId}** type **1** and choose **Test**\.
+   1. For **{itemId}** type `1` and choose **Test**\.
 
    1. If successful, **Response Body** is displayed with **{"success":true }**\.
    
-   1. Test again, for **{itemId}** type **100** and choose **Test**\.
+   1. Test again, for **{itemId}** type `100` and choose **Test**\.
 
    1. If successful, **Response Body** is displayed with **{"success":false }**\.
 
 ### Create the method to post a note
 
-1. Create the `POST` method as follows:
+1. Create the **POST** method as follows:
 
    1. In the **Resources** list, choose **/notes**\.
 
@@ -382,7 +382,7 @@ You can test with the following URLs:
    
    1. For **HTTP method** selet **GET**\.
 
-   1. For **Endpoint URL**, type your URL **http://[your_server_name]/notes**\.
+   1. For **Endpoint URL**, type your URL `http://[your_server_name]/notes`\.
 
    1. Leave **Use Default Timeout** checked\.
 
@@ -398,7 +398,7 @@ You can test with the following URLs:
 
    1. Expand **Request Body** and choose **Add model**\.
 
-   1. For **Content type** type **application/json**, for **Model name** select **NoteItem** and choose the checkmark icon\.
+   1. For **Content type** type `application/json`, for **Model name** select **NoteItem** and choose the checkmark icon\.
    
 1. Update the **Method Response** as follows:
 
@@ -410,13 +410,13 @@ You can test with the following URLs:
 
    1. For **Response Body for 200** edit the Model for **application/json**, choose **SuccessFailResponse** and choose the checkmark icon\.
    
-   1. Choose **Add Response**, type the code **500** and choose the checkmark icon\.
+   1. Choose **Add Response**, type the code `500` and choose the checkmark icon\.
    
    1. Expand the HTTP Status **500**\.
    
    1. For **Response Body for 500** choose **Add Response Model**.
 
-   1. For **Content type** type **application/json** and for **Models** select **SuccessFailResponse** and choose the checkmark icon\.
+   1. For **Content type** type `application/json` and for **Models** select **SuccessFailResponse** and choose the checkmark icon\.
 
 1. Update the **Integration Response** as follows:
 
@@ -434,21 +434,21 @@ You can test with the following URLs:
 
    1. For **Model schema**, update with the following JSON:\.
 
-   ``` json
+   ```
    { "success":true }
    ```
    
    1. Choose **Save**\.
    
-   1. Choose **Add Integration Response**, for **HTTP status regex** type **5\d{2}**, for **Method response status** select **500** and choose **Save**\.
+   1. Choose **Add Integration Response**, for **HTTP status regex** type `5\d{2}``, for **Method response status** select **500** and choose **Save**\.
    
    1. Expand the method response status **500**\.
 
-   1. Choose **Add mapping template**, type **application/json** and choose the checkmark icon\.
+   1. Choose **Add mapping template**, type `application/json` and choose the checkmark icon\.
 
    1. For **Model schema**, update with the following JSON:\.
 
-   ``` json
+   ```
    { "success":false }
    ```
    
@@ -460,7 +460,7 @@ You can test with the following URLs:
 
    1. For **Request body** add the following\.
    
-   ``` json
+   ```
    {
        "title" : "title",
        "description" : "description",
@@ -469,3 +469,8 @@ You can test with the following URLs:
    ```
    
    1. If successful, **Response Body** is displayed with **{"success":true }**\.
+
+### References
+
++ [Setting up data transformations for REST APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-data-transformations.html)
++ [Velocity Template Language (VTL)](http://velocity.apache.org/engine/devel/vtl-reference-guide.html)
