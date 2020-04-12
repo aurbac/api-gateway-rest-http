@@ -1,6 +1,6 @@
 # REST API with API Gateway
 
-## Create API Server
+## Create API Server for Notes
 
 1. Create an EC2 instance (Ubuntu Server 18.04 LTS) with HTTP access and inside SSH execute the following commands.\.
 
@@ -87,6 +87,7 @@ You can test with the following URLs:
        }
    }
    ```
+   
    1. Choose **Create model**\.
 
 1. Create the **notes-id** resource as follows:
@@ -155,6 +156,7 @@ You can test with the following URLs:
      "image_url" : $input.json('$.image'),
    }
    ```
+   
    1. Choose **Save**\.
 
 1. Test the method as follows:
@@ -189,6 +191,7 @@ You can test with the following URLs:
        }
    }
    ```
+   
    1. Choose **Create model**\.
 
 1. Create the **GET** method as follows:
@@ -259,7 +262,7 @@ You can test with the following URLs:
 
    1. If successful, **Response Body** is displayed\.
 
-## Create the method to delete a note
+## Create the method to DELETE a note
 
 1. Create the **SuccessResponse** model as follows:
 
@@ -282,6 +285,7 @@ You can test with the following URLs:
        }
    }
    ```
+   
    1. Choose **Create model**\.
 
 1. Create the **DELETE** method as follows:
@@ -368,7 +372,7 @@ You can test with the following URLs:
 
    1. If successful, **Response Body** is displayed with **{"success":false }**\.
 
-## Create the method to post a note
+## Create the method to POST a note
 
 1. Create the **POST** method as follows:
 
