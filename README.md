@@ -75,7 +75,7 @@ You can test with the following URLs:
 
    1. For **Model schema**, type the following JSON Schema-compatible definition:\.
 
-   ```
+   ``` json
    {
        "title" : "NoteItem",
        "type" : "object",
@@ -147,7 +147,7 @@ You can test with the following URLs:
 
    1. For **Model schema**, update with the following JSON:\.
 
-   ```
+   ``` json
    {
      "note_id" : $input.json('$.id'),
      "title" : $input.json('$.name'),
@@ -166,3 +166,306 @@ You can test with the following URLs:
    1. For **{itemId}** type **1** and choose **Test**\.
 
    1. If successful, **Response Body** is displayed\.
+
+### Create the method to retrieve all the notes
+
+1. Create the `NoteItems` model as follows:
+
+   1. Choose **Models** and choose **Create**\.
+
+   1. For **Model name**, type **NoteItems**\.
+
+   1. For **Content type**, type **application/json**\.
+
+   1. For **Model description**, type **Model for all the notes**\.
+
+   1. For **Model schema**, type the following JSON Schema-compatible definition:\.
+
+   ``` json
+   {
+       "type":"array",
+       "items":{
+           "$ref": "https://apigateway.amazonaws.com/restapis/[YOUR_API_ID]/models/NoteItem"
+       }
+   }
+   ```
+   1. Choose **Create model**\.
+
+1. Create the `GET` method as follows:
+
+   1. In the **Resources** list, choose **/notes**\.
+
+   1. In the **Actions** menu, choose **Create method**\.
+
+   1. Choose **GET** from the dropdown menu, and choose the checkmark icon\.
+
+   1. For **Integration type** set to **HTTP**\.
+
+   1. For **Endpoint URL**, type your URL **http://[your_server_name]/notes**\.
+
+   1. Leave **Use Default Timeout** checked\.
+
+   1. Choose **Save**\.
+
+1. Update the **Method Response** as follows:
+
+   1. In the **Resources** list, choose the method **GET** for **/notes**\.
+
+   1. Choose **Method Response**\.
+
+   1. Expand the HTTP Status **200**\.
+
+   1. For **Response Body for 200** edit the Model for **application/json**, choose **NoteItems** and choose the checkmark icon\.
+
+1. Update the **Integration Response** as follows:
+
+   1. In the **Resources** list, choose the method **GET** for /notes**/{itemId}**\.
+
+   1. Choose **Integration Response**\.
+
+   1. Expand the method response status **200**\.
+   
+   1. Expand **Mapping Templates**\.
+   
+   1. Choose **application/json** \.
+   
+   1. For **Generate template** select **NoteItems** \.
+
+   1. For **Model schema**, update with the following JSON:\.
+
+   ``` json
+   #set($inputRoot = $input.path('$'))
+   [
+   ##TODO: Update this foreach loop to reference array from input json
+   #foreach($elem in $inputRoot)
+    {
+     "note_id" : "$elem.id",
+     "title" : "$elem.title",
+     "description" : "$elem.description",
+     "image_url" : "$elem.image"
+   } 
+   #if($foreach.hasNext),#end
+   #end
+   ]
+   ```
+   
+   1. Choose **Save**\.
+
+1. Test the method as follows:
+
+   1. In the **Resources** list, choose the method **GET** for /notes**/{itemId}**\.
+
+   1. Choose **Test**\.
+
+   1. If successful, **Response Body** is displayed\.
+
+### Create the method to delete a note
+
+1. Create the `SuccessResponse` model as follows:
+
+   1. Choose **Models** and choose **Create**\.
+
+   1. For **Model name**, type **SuccessFailResponse**\.
+
+   1. For **Content type**, type **application/json**\.
+
+   1. For **Model description**, type **Model for success or fail**\.
+
+   1. For **Model schema**, type the following JSON Schema-compatible definition:\.
+
+   ``` json
+   {
+       "title": "SuccessResponse",
+       "type": "object",
+       "properties": {
+           "success": { "type" : "boolean" }
+       }
+   }
+   ```
+   1. Choose **Create model**\.
+
+1. Create the `DELETE` method as follows:
+
+   1. In the **Resources** list, choose /notes**/{itemId}**\.
+
+   1. In the **Actions** menu, choose **Create method**\.
+
+   1. Choose **DELETE** from the dropdown menu, and choose the checkmark icon\.
+
+   1. For **Integration type** set to **HTTP**\.
+   
+   1. For **HTTP method** selet **GET**\.
+
+   1. For **Endpoint URL**, type your URL **http://[your_server_name]/notes/id/{itemId}**\.
+
+   1. Leave **Use Default Timeout** checked\.
+
+   1. Choose **Save**\.
+
+1. Update the **Method Response** as follows:
+
+   1. In the **Resources** list, choose the method **DELETE** for /notes**/{itemId}**\.
+
+   1. Choose **Method Response**\.
+
+   1. Expand the HTTP Status **200**\.
+
+   1. For **Response Body for 200** edit the Model for **application/json**, choose **SuccessFailResponse** and choose the checkmark icon\.
+   
+   1. Choose **Add Response**, type the code **500** and choose the checkmark icon\.
+   
+   1. Expand the HTTP Status **500**\.
+   
+   1. For **Response Body for 500** choose **Add Response Model**.
+
+   1. For **Content type** type **application/json** and for **Models** select **SuccessFailResponse** and choose the checkmark icon\.
+
+1. Update the **Integration Response** as follows:
+
+   1. In the **Resources** list, choose the method **DELETE** for /notes**/{itemId}**\.
+
+   1. Choose **Integration Response**\.
+
+   1. Expand the method response status **200**\.
+   
+   1. Expand **Mapping Templates**\.
+   
+   1. Choose **application/json** \.
+   
+   1. For **Generate template** select **NoteItems** \.
+
+   1. For **Model schema**, update with the following JSON:\.
+
+   ``` json
+   { "success":true }
+   ```
+   
+   1. Choose **Save**\.
+   
+   1. Choose **Add Integration Response**, for **HTTP status regex** type **5\d{2}**, for **Method response status** select **500** and choose **Save**\.
+   
+   1. Expand the method response status **500**\.
+
+   1. Choose **Add mapping template**, type **application/json** and choose the checkmark icon\.
+
+   1. For **Model schema**, update with the following JSON:\.
+
+   ``` json
+   { "success":false }
+   ```
+   
+   1. Choose **Save**\.   
+
+1. Test the method as follows:
+
+   1. In the **Resources** list, choose the method **DELETE** for /notes**/{itemId}**\.
+
+   1. For **{itemId}** type **1** and choose **Test**\.
+
+   1. If successful, **Response Body** is displayed with **{"success":true }**\.
+   
+   1. Test again, for **{itemId}** type **100** and choose **Test**\.
+
+   1. If successful, **Response Body** is displayed with **{"success":false }**\.
+
+### Create the method to post a note
+
+1. Create the `POST` method as follows:
+
+   1. In the **Resources** list, choose **/notes**\.
+
+   1. In the **Actions** menu, choose **Create method**\.
+
+   1. Choose **POST** from the dropdown menu, and choose the checkmark icon\.
+
+   1. For **Integration type** set to **HTTP**\.
+   
+   1. For **HTTP method** selet **GET**\.
+
+   1. For **Endpoint URL**, type your URL **http://[your_server_name]/notes**\.
+
+   1. Leave **Use Default Timeout** checked\.
+
+   1. Choose **Save**\.
+
+1. Update the **Method Request** as follows:
+
+   1. In the **Resources** list, choose the method **POST** for **/notes**\.
+
+   1. Choose **Method Request**\.
+
+   1. Edit **Request Validator**, select **Validate body** and choose the checkmark icon\.
+
+   1. Expand **Request Body** and choose **Add model**\.
+
+   1. For **Content type** type **application/json**, for **Model name** select **NoteItem** and choose the checkmark icon\.
+   
+1. Update the **Method Response** as follows:
+
+   1. In the **Resources** list, choose the method **POST** for **/notes**\.
+
+   1. Choose **Method Response**\.
+
+   1. Expand the HTTP Status **200**\.
+
+   1. For **Response Body for 200** edit the Model for **application/json**, choose **SuccessFailResponse** and choose the checkmark icon\.
+   
+   1. Choose **Add Response**, type the code **500** and choose the checkmark icon\.
+   
+   1. Expand the HTTP Status **500**\.
+   
+   1. For **Response Body for 500** choose **Add Response Model**.
+
+   1. For **Content type** type **application/json** and for **Models** select **SuccessFailResponse** and choose the checkmark icon\.
+
+1. Update the **Integration Response** as follows:
+
+   1. In the **Resources** list, choose the method **POST** for **/notes**\.
+
+   1. Choose **Integration Response**\.
+
+   1. Expand the method response status **200**\.
+   
+   1. Expand **Mapping Templates**\.
+   
+   1. Choose **application/json** \.
+   
+   1. For **Generate template** select **NoteItems** \.
+
+   1. For **Model schema**, update with the following JSON:\.
+
+   ``` json
+   { "success":true }
+   ```
+   
+   1. Choose **Save**\.
+   
+   1. Choose **Add Integration Response**, for **HTTP status regex** type **5\d{2}**, for **Method response status** select **500** and choose **Save**\.
+   
+   1. Expand the method response status **500**\.
+
+   1. Choose **Add mapping template**, type **application/json** and choose the checkmark icon\.
+
+   1. For **Model schema**, update with the following JSON:\.
+
+   ``` json
+   { "success":false }
+   ```
+   
+   1. Choose **Save**\.   
+
+1. Test the method as follows:
+
+   1. In the **Resources** list, choose the method **GET** for **/notes**\.
+
+   1. For **Request body** add the following\.
+   
+   ``` json
+   {
+       "title" : "title",
+       "description" : "description",
+       "image_url" : "image_url"
+   }
+   ```
+   
+   1. If successful, **Response Body** is displayed with **{"success":true }**\.
