@@ -107,7 +107,7 @@ You can test with the following URLs:
 
 1. Create the **GET** method as follows:
 
-   1. In the **Resources** list, choose /notes**/{itemId}**\.
+   1. In the **Resources** list, choose **/notes`/{itemId}`**\.
 
    1. In the **Actions** menu, choose **Create method**\.
 
@@ -123,7 +123,7 @@ You can test with the following URLs:
 
 1. Update the **Method Response** as follows:
 
-   1. In the **Resources** list, choose the method **GET** for /notes**/{itemId}**\.
+   1. In the **Resources** list, choose the method **GET** for **/notes`/{itemId}`**\.
 
    1. Choose **Method Response**\.
 
@@ -133,7 +133,7 @@ You can test with the following URLs:
 
 1. Update the **Integration Response** as follows:
 
-   1. In the **Resources** list, choose the method **GET** for /notes**/{itemId}**\.
+   1. In the **Resources** list, choose the method **GET** for **/notes`/{itemId}`**\.
 
    1. Choose **Integration Response**\.
 
@@ -159,7 +159,7 @@ You can test with the following URLs:
 
 1. Test the method as follows:
 
-   1. In the **Resources** list, choose the method **GET** for /notes**/{itemId}**\.
+   1. In the **Resources** list, choose the method **GET** for **/notes`/{itemId}`**\.
 
    1. Choose **Test**\.
 
@@ -193,7 +193,7 @@ You can test with the following URLs:
 
 1. Create the **GET** method as follows:
 
-   1. In the **Resources** list, choose **/notes**\.
+   1. In the **Resources** list, choose **`/notes`**\.
 
    1. In the **Actions** menu, choose **Create method**\.
 
@@ -209,7 +209,7 @@ You can test with the following URLs:
 
 1. Update the **Method Response** as follows:
 
-   1. In the **Resources** list, choose the method **GET** for **/notes**\.
+   1. In the **Resources** list, choose the method **GET** for **`/notes`**\.
 
    1. Choose **Method Response**\.
 
@@ -219,7 +219,7 @@ You can test with the following URLs:
 
 1. Update the **Integration Response** as follows:
 
-   1. In the **Resources** list, choose the method **GET** for /notes**/{itemId}**\.
+   1. In the **Resources** list, choose the method **GET** for **`/notes`**\.
 
    1. Choose **Integration Response**\.
 
@@ -253,7 +253,7 @@ You can test with the following URLs:
 
 1. Test the method as follows:
 
-   1. In the **Resources** list, choose the method **GET** for /notes**/{itemId}**\.
+   1. In the **Resources** list, choose the method **GET** for **`/notes`**\.
 
    1. Choose **Test**\.
 
@@ -286,7 +286,7 @@ You can test with the following URLs:
 
 1. Create the **DELETE** method as follows:
 
-   1. In the **Resources** list, choose /notes**/{itemId}**\.
+   1. In the **Resources** list, choose **/notes`/{itemId}`**\.
 
    1. In the **Actions** menu, choose **Create method**\.
 
@@ -304,7 +304,7 @@ You can test with the following URLs:
 
 1. Update the **Method Response** as follows:
 
-   1. In the **Resources** list, choose the method **DELETE** for /notes**/{itemId}**\.
+   1. In the **Resources** list, choose the method **DELETE** for **/notes`/{itemId}`**\.
 
    1. Choose **Method Response**\.
 
@@ -322,7 +322,7 @@ You can test with the following URLs:
 
 1. Update the **Integration Response** as follows:
 
-   1. In the **Resources** list, choose the method **DELETE** for /notes**/{itemId}**\.
+   1. In the **Resources** list, choose the method **DELETE** for **/notes`/{itemId}`**\.
 
    1. Choose **Integration Response**\.
 
@@ -358,7 +358,7 @@ You can test with the following URLs:
 
 1. Test the method as follows:
 
-   1. In the **Resources** list, choose the method **DELETE** for /notes**/{itemId}**\.
+   1. In the **Resources** list, choose the method **DELETE** for **/notes`/{itemId}`**\.
 
    1. For **{itemId}** type `1` and choose **Test**\.
 
@@ -372,7 +372,7 @@ You can test with the following URLs:
 
 1. Create the **POST** method as follows:
 
-   1. In the **Resources** list, choose **/notes**\.
+   1. In the **Resources** list, choose **`/notes`**\.
 
    1. In the **Actions** menu, choose **Create method**\.
 
@@ -390,7 +390,7 @@ You can test with the following URLs:
 
 1. Update the **Method Request** as follows:
 
-   1. In the **Resources** list, choose the method **POST** for **/notes**\.
+   1. In the **Resources** list, choose the method **POST** for **`/notes`**\.
 
    1. Choose **Method Request**\.
 
@@ -402,7 +402,7 @@ You can test with the following URLs:
    
 1. Update the **Method Response** as follows:
 
-   1. In the **Resources** list, choose the method **POST** for **/notes**\.
+   1. In the **Resources** list, choose the method **POST** for **`/notes`**\.
 
    1. Choose **Method Response**\.
 
@@ -420,7 +420,7 @@ You can test with the following URLs:
 
 1. Update the **Integration Response** as follows:
 
-   1. In the **Resources** list, choose the method **POST** for **/notes**\.
+   1. In the **Resources** list, choose the method **POST** for **`/notes`**\.
 
    1. Choose **Integration Response**\.
 
@@ -456,7 +456,7 @@ You can test with the following URLs:
 
 1. Test the method as follows:
 
-   1. In the **Resources** list, choose the method **GET** for **/notes**\.
+   1. In the **Resources** list, choose the method **GET** for **`/notes`**\.
 
    1. For **Request body** add the following\.
    
